@@ -18,7 +18,7 @@ export class UserComponent implements OnInit, OnDestroy {
       name: this.route.snapshot.params['userName']
     }
 
-    this.paramsSubscription = this.route.params.subscribe((params: Params)=> {
+    this.route.params.subscribe((params: Params)=> {
       this.user.id = params['userId'];
       this.user.name = params['userName'];
     })
@@ -26,7 +26,7 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.paramsSubscription.unsubscribe();
+    // this.paramsSubscription.unsubscribe();
   }
 
 }
